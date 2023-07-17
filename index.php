@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    <!-- Barra de navegação -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AVAUnB</a>
@@ -24,10 +24,16 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=novo">Novo estudante</a>
+                        <a class="nav-link" href="?page=novo">Adicionar Estudante</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=listar">Listar estudantes</a>
+                        <a class="nav-link" href="?page=listar">Lista de Estudantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=novaDisciplina">Adicionar Disciplina</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=listarDisciplina">Lista de Disciplinas</a>
                     </li>
                 </ul>
             </div>
@@ -38,28 +44,41 @@
         <div class="row">
             <div class="col mt5">
             <?php
-                include("config.php");
+                include("config.php"); // Arquivo para conexão com o Banco
+                // Switch para incluir os arquivos de acordo com a página solicitada
                 switch(@$_REQUEST["page"]){
                     case "novo":
-                        include("novo-estudante.php");
+                        include("novo-estudante.php"); // Inclui o arquivo para adicionar estudante
                     break;
                     case "listar":
-                        include("listar-estudante.php");
+                        include("listar-estudante.php"); // Inclui o arquivo para listar estudantes
                     break;
                     case "salvar":
-                        include("salvar-estudante.php");
+                        include("salvar-estudante.php"); // Inclui o arquivo para salvar estudante
                     break;
                     case "editar":
-                        include("editar-estudante.php");
+                        include("editar-estudante.php"); // Inclui o arquivo para editar estudante
+                    break;
+                    case "novaDisciplina":
+                        include("./disciplinas/nova-disciplina.php"); // Inclui o arquivo para adicionar disciplina
+                    break;
+                    case "listarDisciplina":
+                        include("./disciplinas/listar-disciplina.php"); // Inclui o arquivo para listar disciplinas
+                    break;
+                    case "salvarDisciplina":
+                        include("./disciplinas/salvar-disciplina.php"); // Inclui o arquivo para salvar disciplinas
+                    break;
+                    case "editarDisciplina":
+                        include("./disciplinas/editar-disciplina.php"); // Inclui o arquivo para salvar disciplinas
                     break;
                     default:
-                        print "<h1>Bem vindos!<h1>";
+                        print "<h1>Bem vindos!<h1>"; // Página padrão exibida se nenhuma página específica for solicitada
+                    
                 }
             ?>
             </div>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

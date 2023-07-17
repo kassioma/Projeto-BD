@@ -1,6 +1,7 @@
-<h1>Novo estudante</h1>
+<h1>Cadastrar estudante</h1>
 <form action="?page=salvar" method="POST">
     <input type="hidden" name="acao" value="cadastrar">
+    <!-- Um formulário para cadastrar um estudante -->
     <div class="mb-3">
         <label>Nome</label>
         <input type="text" name="nome" class="form-control" placeholder="Digite seu nome">
@@ -22,6 +23,6 @@
         <input type="password" name="senha" class="form-control" placeholder="Digite sua senha">
     </div>
     <div class="mb-3">
-        <button type"submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </form>
